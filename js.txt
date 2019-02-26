@@ -1,0 +1,440 @@
+js中原始数据类型：number,string,boolean,undefined,null,object
+
+parseInt(值）--转整数
+parseFloat(值）--转小数
+Number(值）--转数字--如果转换失败了，则显示的是NaN
+isNaN(值）--如果不是一个数字则返回true,如果是一个数字则返回false;
+变量toString()--转字符串
+String(值)--转字符串
+Boolean(值）--布尔类型
+typeof 变量名
+typeof(变量名）获取该变量中的值的类型
+
+var num=prompt("请输入一个数字")
+
+闰年判断方法
+四年一闰，百年不润，四百年再闰
+year%4==0&&year%100!=0||year%400==0
+
+Number.MAX_VALUE//数字的最大值
+Number.MIN_VALUE;//数字的最小值
+
+判断结果不是一个数字可以使用isNaN(变量名)
+想要表示八进制 以0开头
+想要表示十六进制 0x开头
+
+< &lt;  >&gt;空格：&nbsp;
+
+只要有一个是字符串，其他的是数字，那么结果也是拼接，不是相加
+如果有一个是字符串，另一个不是字符串，使用-号，此时会发生计算
+
+arguments 数组使用--伪数组
+
+函数的自调用，没有名字，调用--声明的同时，直接调用
+（function(){})(alert(111);)
+
+预解析中，变量的提升，只会在当前的作用域中提升，提前到当前的作用域的最上面
+函数中的变量只会提前到函数的作用域中的最前面，不会出去
+预解析会分段（多对的script标签中函数重名，预解析的时候不会冲突）
+
+方法中直接给变量赋值，不用var 是隐式全局变量，不是局部变量
+
+第一种创建对象的方式
+var obj=new Object();
+obj.name=xxx;
+obj.eat=function(){}
+
+遍历对象，是不能通过for循环遍历，无序
+for(var key in obj{
+	key---obj[key]
+}
+
+Date对象
+Date.now();//毫秒
+
+var dt=new Date();
+dt.getFullYear();//获取年份
+dt.getMonth()+1//是0开始的，真实的月份是需要加1的
+dt.getDate();//获取日期
+dt.getHours();//获取小时
+dt.getMinutes();//获取分钟
+dt.getSeconds();//获取秒
+dt.getDay();//星期从0开始的
+
+dt.toLocaleDateString();//数字格式日期 2019/1/22
+dt.toTimeString();//小时分钟秒 20:45:57 GMT+0800 (中国标准时间)
+dt.toLocaleTimeString()下午8:46:44
+
+//    dt.getFullYear();//年
+//    dt.getMonth();//月---从0开始
+//    dt.getDate();//日
+//    dt.getHours();//小时
+//    dt.getMinutes();//分钟
+//    dt.getSeconds();//秒
+//    dt.getDay();//星期---从0开始
+//    dt.toDateString();//日期
+//    dt.toLocaleDateString();//日期
+//    dt.toTimeString();//时间
+//    dt.toLocaleTimeString();//时间
+//    dt.valueOf();//毫秒
+
+     * 字符串的常用属性:
+     * .length------>字符串的长度
+     * .charAt(索引),返回值是指定索引位置的字符串,超出索引,结果是空字符串
+     * .fromCharCode(数字值,可以是多个参数),返回的是ASCII码对应的值
+     * .concat(字符串1,字符串2,...);返回的是拼接之后的新的字符串
+     * .indexOf(要找的字符串,从某个位置开始的索引);返回的是这个字符串的索引值,没找到则返回-1
+     * .lastIndexOf(要找的字符串);从后向前找,但是索引仍然是从左向右的方式,找不到则返回-1
+     * .replace("原来的字符串","新的字符串");用来替换字符串的
+     * .slice(开始的索引,结束的索引); 从索引5的位置开始提取,到索引为10的前一个结束,没有10，并返回这个提取后的字符串
+     * .split("要干掉的字符串",切割后留下的个数);切割字符串
+     * .substr(开始的位置,个数);返回的是截取后的新的字符串
+     * .substring(开始的索引,结束的索引),返回截取后的字符串,不包含结束的索引的字符串
+     * .toLocaleLowerCase();转小写
+     * .toLowerCase();转小写
+     * .toLocaleUpperCase()转大写
+     * .toUpperCase();转大写
+     * .trim();干掉字符串两端的空格
+
+Array.isArray(对象)---->判断这个对象是不是数组
+     * instanceof关键字
+     * .concat(数组,数组,数组,...) 组合一个新的数组
+     * .every(函数)--返回值是布尔类型,函数作为参数使用,函数中有三个参数,第一个参数是元素的值，第二个参数是索引值,第三个参数是原来的数组(没用)
+     * 如果这个数组中的每个元素的值都符合条件,最后才返回的是true
+     *
+     * .filter(函数);返回的是数组中每一个元素都复合条件的元素,组成了一个新的数组
+     *
+     * .push(值);--->把值追加到数组中,加到最后了---返回值也是追加数据之后的数组长度
+     * .pop();--->删除数组中最后一个元素,返回值就是删除的这个值
+     * .shift();--->删除数组中第一个元素,返回值就是删除的这个值
+     * .unshift();--->向数组的第一个元素前面插入一个新的元素,----返回值是插入后的程度
+     * .forEach(函数)方法---遍历数组用---相当于for循环
+     * .indexOf(元素值);返回的是索引,没有则是-1
+     * .join("字符串");----返回的是一个字符串
+     * .map(函数);--->数组中的每个元素都要执行这个函数,把执行后的结果重新的全部的放在一个新的数组中
+     * .reverse();----->反转数组
+     * .sort();---排序的,可能不稳定,如果不稳定,请写MDN中的那个固定的代码
+     * .arr.slice(开始的索引,结束的索引);把截取的数组的值放在一个新的数组中,但是不包含结束的索引对应的元素值
+     * .splice(开始的位置,要删除的个数,替换的元素的值);一般是用于删除数组中的元素,或者是替换元素,或者是插入元素
+
+页面的加载事件，页面中所有的内容加载完毕后才执行
+window.onload=function(){}
+
+页面关闭之后才执行，谷歌不支持，IE8支持
+window.onunload=function(){}
+
+定时器
+var id=setInterval(function(){});
+//清除定时器
+clearInterval(id);
+location.href//获取地址的，设置地址，地址改变，就会跳转
+location.assign("http://www.baidu.com")//同时会把原来的页面的记录会保存到历史记录中
+location.reload();//重载，刷新 
+location.replace("http://www.baidu.com")//把当前页面的地址，替换成一个新的地址，不会保存到历史记录
+
+window.location.hash//地址栏上#及后面的内容
+window.location.host;//主机名字和端口号
+window.location.hostname;//主机名字
+window.location.pathname;//文件的相对路径
+window.location.port;//端口
+window.location.protocol;//协议
+window.location.search;//搜索的内容 获取的是？及后面的内容
+
+navigator.userAgent;//是不同浏览器的信息
+
+history.forward();//前进
+history.back();//后退
+history.go();//如果是正数就是前进，负数就是后退
+
+BOM:Browser Object Model 浏览器对象模型（就是把一个浏览器看成一个对象）
+BOM中的顶级对象:window
+页面中所有的东西都是window的
+变量，函数，对象都是window
+页面的加载事件：window.onload=匿名函数：页面加载后才会执行里面的代码
+setInterval(函数，时间);返回的就是定时器，对应clearInterval(定时器id)清理定时器
+setTimeout(函数，时间）；返回的就是定时器id对应clearTimeout(定时器)
+
+DOM:Document Object Model 文档对象模型
+页面中的顶级对象是:document
+element:元素
+node:节点
+parent:父亲
+children:孩子
+
+dom=document.getElementById("");//根据id属性的值获取某个元素
+dom.innerText="xxx";//innerText属性是设置或者获取标签中间的文本内容（一般是成对的标签）
+
+
+    //根据id属性
+    document.getElementById("id属性的值");返回一个对象
+    //根据标签名字
+    document.getElementsByTagName("标签的名字");返回的是多个,组成了一个数组
+    //获取应用了cls类样式的标签--h5中的
+    document.getElementsByClassName("类样式的名字");返回的是多个,组成了一个数组
+    //根据name属性的值来获取元素
+    document.getElementsByName("name属性的值");返回的是多个,组成了一个数组
+    //根据选择器的方式来获取--h5中的
+    document.querySelector("选择器");返回一个对象
+    document.querySelectorAll("选择器");返回是多个
+
+var divObj=document.getElementById("dv");
+divObj.style.width="200px";
+disObj.style.height="300px";
+//根据id获取文本框，设置disabled属性
+document.getElementById("").disabled=true;
+
+鼠标进入事件：onmouseover
+鼠标离开事件：onmouseout
+获取焦点事件：onfocus
+注册失去焦点事件：onblur
+
+在html标签中添加的自定义属性，如果想要获取这个属性的值，需要使用getAttribute("属性名字")才能获取这个属性的值
+
+setAttribute();//设置属性值 
+removeAttribute("");//移除元素的属性
+
+父级节点：对象.parentNode
+父级元素：对象.parentElement
+
+var node=dvObj.childNodes[i];
+node.nodeType;//节点的类型：1--标签，2--属性，3--文本
+node.nodeName;//节点的名字：大写的标签--标签，小写的属性名--属性，#text--文本
+node.nodeValue;//节点的值：标签--null,属性--属性的值 ，文本-文本内容
+
+创建元素的
+var obj=document.createElement("p");
+setInnerText(obj,"这是 一个P");
+xx.appendChild();/把创建后的子元素追加到父级元素中
+
+为元素绑定事件DOM：一种，但是不兼容，有两种
+1、对象.addEventListener("事件类型",事件处理函数,false);//谷歌和火狐支持，IE8不支持
+2、对象.attachEvent("有on的事件类型",事件处理函数，);//谷歌不支持，火狐不支持，IE8支持
+
+对象.addEventListener("click",function(){},false);
+对象.attachEvent("onclick",function(){});
+
+事件冒泡，阻止事件冒泡
+window.event.cancelBubble=true;//IE特有的，谷歌支持，火狐不支持
+e.stopPropagation();//谷歌和火狐支持
+
+设置div的透明度
+obj.style.opacity=0.3;
+
+获取div的当前位置
+对象.offsetLeft
+
+鼠标在页面中移动，图片跟着鼠标移动
+
+document.onmousemove=function(e){
+对象.style.left=e.clientX+"px";
+对象.style.top=e.clientY+"px";
+}
+cursor: pointer;鼠标指针变成手的形状
+通过原型来添加方法，解决数据共享，节省内存空间
+Person.prototype.eat=function(){
+}
+实例对象使用的属性或者方法，先在实例中查找，找到了则直接使用，找不到则，去实例对象的
+prototype指向中找，找到了则使用，找不到则报错
+
+(function(形参){
+
+})(实参)
+(function(win){
+
+})(window)
+
+为了数据共享，改变原型指向，做到了继承--通过改变原型指向实现的继承
+缺陷：因为改变原型指向的同时实现继承，直接初始化了属性，继承过来的属性的值都是一样的
+只能重新调用对象的属性进行重新赋值
+function Person(name,age,weight){
+	...
+}
+function Student(score){
+	...
+}
+Student.prototype=new Person(name,age,weight);
+var stu=new Student("xx");
+
+解决方法
+借用构造函数：构造函数名字，call(当前对象，属性，属性...)
+解决了属性继承，并且值不重复的问题
+缺陷：父级类别中的方法不能继承
+
+function Student(name,age,sex,weight,score){
+	Person.call(this,name,age,sex,weight);
+	this.score=score;
+}
+
+js中的继承
+1、原型实现继承
+2、借用构造函数实现继承
+3、组合继承：原型继承+借用构造函数继承
+    function Person(name,age,sex) {
+      this.name=name;
+      this.age=age;
+      this.sex=sex;
+    }
+    Person.prototype.sayHi=function () {
+      console.log("阿涅哈斯诶呦");
+    };
+    function Student(name,age,sex,score) {
+      //借用构造函数:属性值重复的问题
+      Person.call(this,name,age,sex);
+      this.score=score;
+    }
+    //改变原型指向----继承
+    Student.prototype=new Person();//不传值
+    Student.prototype.eat=function () {
+      console.log("吃东西");
+    };
+    var stu=new Student("小黑",20,"男","100分");
+    console.log(stu.name,stu.age,stu.sex,stu.score);
+    stu.sayHi();
+    stu.eat();
+    var stu2=new Student("小黑黑",200,"男人","1010分");
+    console.log(stu2.name,stu2.age,stu2.sex,stu2.score);
+    stu2.sayHi();
+    stu2.eat();
+    console.log(stu2)
+
+//闭包
+function f1(){
+  var num=parseInt(Math.random()*10+1)
+  return function(){
+    console.log(num);
+  }
+}
+var ff=f1();//实际上ff是return 之后的函数
+//总结：如果想要缓存数据，就把这个数据放在外层的函数和里层的函数的中间位置
+//闭包的作用：缓存数据，优点也是缺陷，没有及时的释放
+//局部变量是在函数中，函数使用结束后，局部变量就会被自动的释放
+//闭包后，里面的局部变量的使用作用域链就会被延长
+
+//沙箱
+(function(){
+  var str="xx";
+  str=str.substr(2);
+  console.log(str);
+}());
+
+apply和call都可以改变this的指向
+apply和call的使用方法
+apply的使用语法
+函数名字.apply(对象，[参数1，参数2,...]);
+方法名字.apply(对象，[参数1，参数2,...]);
+call的使用语法
+函数名字.call(对象，参数1，参数2，...);
+方法名字.call(对象，参数1，参数2，...);
+作用：改变this的指向
+不同的地方：参数传递的方式是不一样的
+只要是想使用别的对象的方法，并且希望这个方法是当前对象的，那么就可以使用apply或者是call的方法改变this的指向
+
+bind方法是复制的意思，参数可以在复制的时候传进去，也可以在复制之后调用的时候传入进去
+bind使用语法
+函数名字.bind(对象，参数，参数2，...)；返回值是复制之后的这个函数
+函数方法.bind(对象，参数，参数2，...)；返回值是复制之后的这个方法
+
+函数中有一个name属性--函数的名字，name属性是只读的，不能修改
+函数中有一个arguments属性--实参的个数 
+函数中有一个length属性--函数定义的时候形参的个数
+函数中有一个caller属性，调用(f1函数在f2函数中调用的，所以,此时调用者就是f2)
+
+正则表达式
+[ ]表示的是范围，[0,9]表示的是0到9之间的任意的一个数字
+[1-7]表示的是1到7之间的任意的一个数字
+[a-z]表示的是所有小写的字母中的任意的一个
+[A-Z]表示的是所有大写的字母中的任意的一个
+[a-zA-Z]表示的是所有字母的任意一个
+[0-9a-zA-Z]表示的是所有数字或者是字母中的一个
+[ ]另一个函数：把正则表达式中元字符的意义干掉 [.]就是一个
+ | 或者[0-9]|[a-z]表示的是要么是一个数字，要么是一个小写的字母
+()分组 提升优先级[0-9]|(a-z)|[A-Z]
+* 表示的是：前面的表达式出现了0次到多次
+[a-z][0-9]* 小写字母中的任意一个 后面是要么是没有数字的，要么是多个数字的
++表示的是：前面的表达式出现了1次到多次
+[a-z][9]+小写字母一个后面最小一个9，或者多个9
+?表示的是：前面的表达式出现了0次到1次，最少是0次，最多1次，另一个含义：阻止贪婪模式
+限定符：限定前面的表达式出现的次数
+{}更加的明确前面的表达式出现的次数
+{0,}表示的是前面的表达式出现了0次到多次，和*一样的
+{1,}表示的是前面的表达式出现了1次到多次，和+一样的
+{0,1}表示的是前面的表达式出现了0次到1次，和？一样的
+{5，10}表示的是前面的表达式出现了5次到10次
+{4}前面的表达式出现了4次
+{，10}错误的 不能这么写
+^表示的是以什么开始，或者是取非（取反）^[0-9]以数字开头
+^[a-z]以小写字母开始
+[^0-9]取反，非数字
+[^a-z]非小写字母
+$表示的是以什么结束，[0-9][a-z]$必须以小写的字母结束
+\d 数字中的任意一个
+\D非数字中的一个
+\s空白符中的一个
+\S非空白符
+\w非特殊符号
+\W特殊符号
+\b单词的边界
+. 除了\n以外的任意一个单个字符
+[]范围
+()分组，提升优先级
+|或者
+* 0-多次
++ 1-多次
+？ 0-1次
+{0,}和*一次
+{1,}和+一样
+{0,1}和？一样
+
+身份证的正则表达式
+15位或者18位
+([1-9][0-9]{14})|([1-9][0-9]{16}[0-9xX])
+([1-9][0-9]{14})|([0-9]{2}[0-9xX]？
+
+座机号码的正则表达式
+010-1987654
+0431-87123490
+[0-9]{3,4}[-][0-9]{8}或者
+\d{3,4}[-]\d{8}
+
+手机号码的正则表达式
+    * 130 131 132 133 134 135 136 137 138 139
+    * 143 147
+    * 150 151 152 153 154 155 156 157 158 159
+    * 170 171 173 176 177
+    * 180 181 182 183 184 185 186 187 188 189
+([1][358][0-9][0-9]{8}|([1][4][37][0-9]{8}|([1][7][01367][0-9]{8})
+\d{11}
+邮箱的正则表达式，必须要记住的
+[0-9a-zA-Z_.-]+[@][0-9a-zA-Z_.-]+([.][a-zA-Z]+){1,2}
+
+创建正则表达式对象
+两种
+1、通过构造函数创建对象
+2、字面量的方式创建对象
+正则表达式的作用：匹配字符串的
+对象创建完毕
+var reg=new RegExp(/\d{5}/);
+var flag=reg.test("2003434");
+
+字面量的方式创建正则表达式对象
+var reg=/\d{1,5}/;
+var flag=reg.test("xx");
+正则表达式中：g表示的是全局模式匹配
+正则表达式中：i表示的是忽略大小写
+       var str="中国移动:10086,中国联通:10010,中国电信:10000";
+       //把里面所有的数字全部显示出来
+       var array=str.match(/\d{5}/g);
+       console.log(array);
+
+    //提取这里的日
+       var str="2017-11-12";
+    var array=str.match(/(\d{4})[-](\d{2})[-](\d{2})/g);
+    //console.log(array);
+    //正则表达式对象.$3
+    console.log(RegExp.$3);
+
+arguments得到的是实参的个数及实参的每个值
+
+
+
+

@@ -1,0 +1,237 @@
+font-family:Arial;// 微软雅黑
+font-family:"mirosoft yahei",Arial
+font-size:16px;//字体大小
+line-height:28px;//行高 行与行之间的距离
+text-indent:2em //段落道行缩进2个字
+font-weight:700//没有单位 ==bold
+font-weight:bold;//字体加粗
+text-align:center;//让h1里面的文字水平居中
+font-weight:400;//让粗体不加粗
+font-style:normal;//让斜体不斜
+font-style:italic;//斜体
+text-decoration:none;//取消下划线
+text-decoration:underline;//下划线
+text-decoration:overline;上划线
+text-docoration:line-throught;删除线
+ul li a{}//后代选择器 所有的后代的意思
+ul li >a{}子代选择器 子 指的是亲儿子 大于号分割 
+div.red//交集选择器
+div,p,span{}//并集选择器 用逗号隔开
+
+a:link{}//未访问过的连接状态
+a:visited{}//这个链接我们已经点过的样子
+a:hover{}//鼠标经过连接时候的样子
+a:active{}鼠标按下时候的样子
+
+div{
+display:inline;//把块级元素转换为行内元素
+}
+span{
+display:block;//把行内元素转换为块级元素
+}
+a{
+display:inline-block;//把行内元素转换为行内块元素
+}
+
+text-align:center;//让盒子内的文字居中对齐
+行内元素 行内块元素 我们可以看做文本
+行内块元素可以设置大小
+行高等于盒子的高度，可以让单行文本垂直居中
+padding 7px 0 代表的是先上下7px 后左右为0
+list-style:none li中不要点
+
+background-color:pink
+background-image:url(xxx.jpg)
+repeat:背景图像在纵向和横向上平铺
+no-repeat:背景图像不平铺
+repeat-x:背景图像在横向上平铺
+repeat-y:背景图像在纵向平铺
+background-repeat:repeat-y
+background-position:x y;
+background-position:center top：top上 bottom下 left 左 right右
+background-position:center center: top上 bottom 下 left 左 right右
+background-position:bottom right; 
+background-attachment:fixec;//fixed固定的
+background:背景颜色 背景图片地址 背景平铺 背景滚动 背景位置
+background:#000 url(images/sm.jpg) no-repeat fixed center top;
+border-width:1px;
+border-color:red;
+border-style:solid;//实线
+border-style:dashed;虚线 大使的
+border-style:dotted:点线 
+border:1px solid blue
+border-top:1px solid red//上边框
+border-bottom:2px solid green;
+border-left:1px solid blue;
+border-right:5px solid pink;
+input{
+border:0;//去掉所有边框
+}
+border-collapse:collapse;//合并相邻边框
+padding:10px 20px 30px 40px 上 右 下 左
+padding:20px 15px 0;//上 左右 下
+
+盒子居中
+text-align:center;//可以让盒子内容（文字 行内元素 行内块元素）居中对齐
+margin:100px auto;上下是100px； 左右是auto自动 水平居中对齐
+正方形变圆
+border-radius:50%
+border-radius:150px 0
+鼠标经过div时候的盒子阴影
+box-shadow:0 15px 30px rgba(0,0,0,0,1);
+额外标签法 
+
+1、最后一个浮动标签的后，新添加一个标签，清除浮动
+clear:both;//清除左右浮动，父亲去自动检测孩子的高度，以最高的主准
+
+2、overflow:hidden;//给父亲加,不是所有的浮动我们都需要清除，谁影响布局，我们清除谁
+
+3、after伪元素清除浮动
+.father:after{//正常浏览器 清除浮动
+	content:"";
+	display:block;
+	height:0;
+	clear:both;
+	visibility:hidden;
+}
+.father {
+	*zoom:1//zoom 1就是ie6清除浮动方式
+}
+4、双伪元素清除浮动
+.father:before,.father:after{
+	content:"";
+	display:table;
+}
+.father:after{
+	clear:both;
+}
+.clearfix{
+	*zoom:1;
+}
+
+定位
+
+相对定位
+position:relative;
+top:100px;
+left:100px;
+
+绝对定位
+position:absolute;//不占位置 跟浮动一样
+right:100px
+bottom:100px;
+若所有的父元素都没有定位，以浏览器当前屏幕为准对齐（document)文档
+
+加了定位 浮动的盒子 margin:0 auto失效了
+应该用如下方法
+width:200px;
+height:200px;
+position:absolute;
+left:50%;
+margin-left:-100px;
+top:50%;
+margin-top:-100px;
+
+固定定位
+position:fixed;
+
+z-index叠放次序
+z-index:0;只有定位的盒子才有
+position:absolute;
+
+显示与隐藏
+display:显示
+display:none;//隐藏某个元素 不保留位置
+display:block;//显示某个元素
+visibility:hidden;隐藏某个元素 保留位置
+
+overflow:hidden;//溢出隐藏
+overflow:scroll;//scroll 滚动条
+overflow:auto;//auto 自动
+
+鼠标样式
+cursor:pointer;//让我们的鼠标样式变成小手
+cursor:text;//让我们的鼠标样式变成选择
+cursor:default;//让我们的鼠标样式小白
+cursor:move;//移动的效果
+
+溢出文字省略号
+white-space：nowrap;//强制在同一行内显示所有文本，直到文本结束或者遭遇br标签对象才换行
+overflow:hidden;//超出的部分隐藏
+text-overflow;ellipsis;//溢出的部分用省略号替代
+
+html5中新标签
+header
+nav
+aside
+article
+time
+
+<input type="text" value="请输入明星"　list="star" ></input>
+<datalist id="star">
+<option value="xxx">xxx</option>
+</datalist>
+<fieldset>
+	<legend>xxx</legend>
+	<input>
+</fieldset>
+
+html5中新增的表单属性
+<input type="email"></input>
+<input type="tel"/>
+<input type="url"/>
+<input type="number"/>
+<input type="range"/>//拖动滑块
+<input type="time"/>//时间
+<input type="date"/>//日期
+<input type="datetime"/>//时间
+<input type="month"/>//月份
+<input type="week"/>//星期
+
+新增表单属性
+<input type="text" placeholder="xxx" autofocus/>
+<input type="file" multiple/>
+<input type="text" required accesskey="s"/>
+
+插入视频
+<iframe height=300 width=400 src="xx" frameborder=0>
+
+	<audio  controls loop>
+		<source src="bgsound.mp3"/>
+		<source src="music.ogg"/>
+		您的浏览器版本太低
+	</audio>
+
+	<video autoplay  controls>
+		<source  src="movie04.ogg"/>
+		<source  src="mp4.mp4"/>
+	</video>
+
+ul li:first-child{} 第一个元素
+ul li:last-child{}最后一个元素
+li:nth-child(3){}选择第3个
+li:nth-child(even){}选择所有的偶数
+li:nth-child(odd){}选择所有的奇数
+li:nth-child(2n){}0 2 4 6 。。。
+
+div[class]选出所有带有 class属性的
+div[class=demo]选出class=demo
+div[class^=test]选出test开头的标签
+
+p::first-letter{}//选择第一个字
+p::first-line{}//第一行
+p::selection{}选择文字时候的状态
+
+after和before伪元素
+div::before{
+content:"xx";//必须带一个属性content伪元素
+}
+div::after{
+content:"xxx";
+}
+
+
+box-sizing:border-box;//内减模式
+
+
+

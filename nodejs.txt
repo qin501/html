@@ -1,0 +1,32 @@
+//浏览器中的javascript是没有文件操作的能力的
+//但是node中的javascript具有文件操作的能力
+fs是file-system的简写，就是文件系统的意思
+在node中如果想要进行文件操作，就必须引入fs这个核心模块
+在fs这个核心模块中，就提供了所有的文件操作相关的api
+var fs=require('fs');
+fs.readFile用来读取文件的
+fs.readFile('xxx.txt',function(error,data){});
+成功：文件写入成功 error是Null
+失败：文件写入失败 error就是错误对象
+fs.writeFile('xxx.txt','xxx内容',function(error){})
+//加载http核心模块
+var http=require('http');
+//创建一个web服务器
+var server=http.createServer();
+//当客户端请求过来，就会自动触发服务器的 request 请求事件，然后执行第二个参数：回调处理函数
+server.on('request',function(request,response){
+})
+server.listen(3000,function(){
+console.log('服务器启动成功了，可以通过 http://127.0.0.1:3000/ 来进行访问')
+})
+
+response.write('直接显示在页面');
+response.end();//结束响应
+或者
+response.end('xxx');//直接end的同时发送响应数据
+
+require('os');//用来获取机器信息的
+require('path');//用来操作路径的
+os.cpus();//获取当前机器的cpu信息
+os.totalmem();//memory内存
+path.extname('xx.txt');//获取扩展名部分
